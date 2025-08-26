@@ -1,4 +1,4 @@
-import type { CardData } from "@/Types";
+
 import cardpic1 from "../../assets/images/image (7).png";
 import cardpic2 from "../../assets/images/image (8).png";
 import cardpic3 from "../../assets/images/image (9).png";
@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 export const Card = () => {
-  const cards: CardData[] = [
+  const cards = [
     {
       id: 1,
       image: <img src={cardpic1} alt="" />,

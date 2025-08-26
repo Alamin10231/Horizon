@@ -24,6 +24,7 @@ import slider3 from "../../assets/images/image (9).png";
 import slider4 from "../../assets/images/sliderpic.png";
 import { SizeVariantsView } from "../Shared/SizeVariantsView";
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 export const CardShop = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
@@ -194,7 +195,7 @@ export const CardShop = () => {
               Shop Now
             </button>
             <button className="flex-1 py-2 bg-green text-white rounded-full shadow-md hover:bg-transparent hover:text-black hover:border hover:border-green hover:shadow-none">
-              Add to Cart
+            <Link to="/addtocart">  Add to Cart</Link>
             </button>
           </div>
 

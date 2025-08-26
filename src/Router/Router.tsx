@@ -3,6 +3,7 @@ import { VerificationEmail } from "@/components/Auth/VerificationEmail";
 import { PhotoGallery } from "@/components/Gallery/PhotoGallery";
 // import { PhotoGallery } from "@/components/Gallery/PhotoGallery";
 import { VideoGallery } from "@/components/Gallery/VideoGallery";
+import { AddtoCart } from "@/components/Products/AddtoCart";
 import { PcardsAll } from "@/components/Products/PcardsAll";
 import { ShippingPolicy } from "@/components/Products/ShippingPolicy";
 import { ShopNow } from "@/components/Products/ShopNow";
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
       {
         path: "shipping",
         element: <ShippingPolicy></ShippingPolicy>,
+      },
+      {
+        path: "addtocart",
+        element: <AddtoCart></AddtoCart>
       },
     ],
   },

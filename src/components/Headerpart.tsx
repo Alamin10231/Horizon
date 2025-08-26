@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { SizeVariantsView } from './Shared/SizeVariantsView'
 import headerpic from "../assets/images/headerimage.png";
 import { Header } from "@/components/Header/Header";

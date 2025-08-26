@@ -1,4 +1,4 @@
-import React from "react";
+
 import registerpic from "../../src/assets/images/image (4).png";
 import registerform from "../../src/assets/images/registerpic.png";
 import AllEye from "../../src/assets/images/AiFillEye.svg";

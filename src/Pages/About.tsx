@@ -1,7 +1,7 @@
 import { AboutHeader } from '@/components/AboutUs/AboutHeader'
 import { Anyhelp } from '@/components/AboutUs/Anyhelp'
 import { Cardsection } from '@/components/AboutUs/Cardsection'
-import { Cost } from '@/components/AboutUs/cost'
+import { Cost } from '@/components/AboutUs/Cost'
 import { ReviewSection } from '@/components/Home/ReviewCard '
 
 

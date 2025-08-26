@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Header } from "../Header/Header";
 import headerpic from "../../assets/images/imagebg (20).png";
 import { SizeVariantsView } from "../Shared/SizeVariantsView";

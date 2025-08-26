@@ -1,4 +1,4 @@
-import React from "react";
+
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { HiLocationMarker, HiMail, HiPhone } from "react-icons/hi";
 import logo from "../assets/images/logo.png"

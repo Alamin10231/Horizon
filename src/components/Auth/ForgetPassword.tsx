@@ -1,4 +1,4 @@
-import React from 'react'
+
 import forgetlogo from"../../assets/images/Vector (4).png"
 import { Link } from 'react-router'
 export const ForgetPassword = () => {

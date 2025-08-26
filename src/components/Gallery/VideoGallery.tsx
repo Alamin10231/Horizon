@@ -1,4 +1,4 @@
-import React from "react";
+
 
 export const VideoGallery = () => {
   return (
@@ -29,7 +29,7 @@ export const VideoGallery = () => {
               <div className="relative w-full  overflow-hidden rounded-lg s">
              <iframe
              className="w-full max-h-[660px]"
-             width="560" height="315" src="https://www.youtube.com/embed/bMgjZPqL1zk?si=yexSTopaSlVW4cgn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+             width="560" height="315" src="https://www.youtube.com/embed/bMgjZPqL1zk?si=yexSTopaSlVW4cgn" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  ></iframe>
               </div>
             </div>
           </div>

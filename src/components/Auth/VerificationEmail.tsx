@@ -1,4 +1,4 @@
-import React from "react";
+
 import emailconfirm from"../../assets/images/Vector (5).png"
 export const VerificationEmail = () => {
   return (

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Headerpart } from '../Headerpart'
+
+
 import headerpic from "../../assets/images/image (14).png"
 import { Header } from '../Header/Header'
 import { SizeVariantsView } from '../Shared/SizeVariantsView'

@@ -1,4 +1,4 @@
-import gallerypic from "../../assets/images/image (22).png"
+
 import gallerypic1 from "../../assets/images/image (23).png"
 import gallerypic2 from "../../assets/images/image (24).png"
 import gallerypic3 from "../../assets/images/image (26).png"
