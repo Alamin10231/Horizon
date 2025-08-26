@@ -1,0 +1,112 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "image": "https://res.cloudinary.com/dtxgvdpns/image/upload/v1755900013/p8tjd0ejcqzevpzq3iwn.png",
+      "title": "Brulee-wood Grain",
+      "subtitle": "Price:120$",
+      "color": "bg-green-500",
+      "category": "Bruleewood",
+      "price": 120
+    },
+    {
+      "id": 2,
+      "image": "https://res.cloudinary.com/dtxgvdpns/image/upload/v1755900013/p8tjd0ejcqzevpzq3iwn.png",
+      "title": "Brulee-wood Grain",
+      "subtitle": "Price:95$",
+      "color": "bg-green-500",
+      "category": "Bruleewood",
+      "price": 95
+    },
+    {
+      "id": 3,
+      "image": "https://res.cloudinary.com/dtxgvdpns/image/upload/v1755900013/p8tjd0ejcqzevpzq3iwn.png",
+      "title": "Brulee-wood Grain",
+      "subtitle": "Price:150$",
+      "color": "bg-green-500",
+      "category": "Bruleewood",
+      "price": 150
+    },
+    {
+      "id": 4,
+      "image": "https://res.cloudinary.com/dtxgvdpns/image/upload/v1755900013/p8tjd0ejcqzevpzq3iwn.png",
+      "title": "Brulee-wood Grain",
+      "subtitle": "Price:110$",
+      "color": "bg-green-500",
+      "category": "Bruleewood",
+      "price": 110
+    },
+    {
+      "id": 5,
+      "image": "https://res.cloudinary.com/dtxgvdpns/image/upload/v1755900013/axikuj1bmua4s7yltewi.png",
+      "title": "Red Bordeaux-wood Grain",
+      "subtitle": "Price:210$",
+      "color": "bg-blue-500",
+      "category": "RedBordeauxwood",
+      "price": 210
+    },
+    {
+      "id": 6,
+      "image": "https://res.cloudinary.com/dtxgvdpns/image/upload/v1755900013/axikuj1bmua4s7yltewi.png",
+      "title": "Red Bordeaux-wood Grain",
+      "subtitle": "Price:190$",
+      "color": "bg-blue-500",
+      "category": "RedBordeauxwood",
+      "price": 190
+    },
+    {
+      "id": 7,
+      "image": "https://res.cloudinary.com/dtxgvdpns/image/upload/v1755900013/axikuj1bmua4s7yltewi.png",
+      "title": "Red Bordeaux-wood Grain",
+      "subtitle": "Price:250$",
+      "color": "bg-blue-500",
+      "category": "RedBordeauxwood",
+      "price": 250
+    },
+    {
+      "id": 8,
+      "image": "https://res.cloudinary.com/dtxgvdpns/image/upload/v1755900013/axikuj1bmua4s7yltewi.png",
+      "title": "Red Bordeaux-wood Grain",
+      "subtitle": "Price:230$",
+      "color": "bg-blue-500",
+      "category": "RedBordeauxwood",
+      "price": 230
+    },
+    {
+      "id": 9,
+      "image": "https://res.cloudinary.com/dtxgvdpns/image/upload/v1755900012/r9oknarfibj7bgnb73x9.png",
+      "title": "Caramel-wood Grain",
+      "subtitle": "Price:320$",
+      "color": "bg-red-500",
+      "category": "Caramelwood",
+      "price": 320
+    },
+    {
+      "id": 10,
+      "image": "https://res.cloudinary.com/dtxgvdpns/image/upload/v1755900012/r9oknarfibj7bgnb73x9.png",
+      "title": "Caramel-wood Grain",
+      "subtitle": "Price:300$",
+      "color": "bg-red-500",
+      "category": "Caramelwood",
+      "price": 300
+    },
+    {
+      "id": 11,
+      "image": "https://res.cloudinary.com/dtxgvdpns/image/upload/v1755900012/r9oknarfibj7bgnb73x9.png",
+      "title": "Caramel-wood Grain",
+      "subtitle": "Price:350$",
+      "color": "bg-red-500",
+      "category": "Caramelwood",
+      "price": 350
+    },
+    {
+      "id": 12,
+      "image": "https://res.cloudinary.com/dtxgvdpns/image/upload/v1755900012/r9oknarfibj7bgnb73x9.png",
+      "title": "Caramel-wood Grain",
+      "subtitle": "Price:330$",
+      "color": "bg-red-500",
+      "category": "Caramelwood",
+      "price": 330
+    }
+  ]
+}
