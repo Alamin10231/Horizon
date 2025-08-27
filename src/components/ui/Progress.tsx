@@ -9,10 +9,10 @@ import {
 } from "@/components/ui/stepper";
 
 const steps = [
-  { id: 1, label: "Shipping" },
-  { id: 2, label: "Payment" },
-  { id: 3, label: "Review" },
-  { id: 4, label: "Confirmation" },
+  { id: 1, label: "Shopping cart" },
+  { id: 2, label: "Checkout details" },
+  { id: 3, label: "Order complete" },
+
 ];
 
 export default function Component() {

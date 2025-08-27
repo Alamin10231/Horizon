@@ -4,6 +4,10 @@ import { useState, useEffect } from "react";
 import Progress from "../ui/Progress";
 import { SizeVariantsView } from "../Shared/SizeVariantsView";
 import { RxCross1 } from "react-icons/rx";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
+import vectorpic from "../../assets/images/vector/Vector (5).png";
+import { Link } from "react-router";
+
 interface Card {
   id: number;
   image: string;
@@ -17,7 +21,7 @@ interface Card {
 export const AddtoCart = () => {
   const [cards, setCards] = useState<Card[]>([]);
   const [quantities, setQuantities] = useState<{ [key: number]: number }>({});
-
+  const [note, setNote] = useState(false);
 
   useEffect(() => {
     fetch("/Cards.json")
@@ -36,84 +40,93 @@ export const AddtoCart = () => {
       [id]: Math.max(1, prev[id] + delta),
     }));
   };
-  
+
+  const handledlt = (id: number) => {
+    setCards((prev) => prev.filter((card) => card.id !== id));
+    setQuantities((prev) => {
+      const newQuantities = { ...prev };
+      delete newQuantities[id];
+      return newQuantities;
+    });
+  };
 
   const total = cards.reduce(
     (acc, card) => acc + card.price * (quantities[card.id] || 1),
     0
   );
-  const handledlt = (id:number)=>{
-setCards((prev)=>prev.filter((card)=>card.id !== id))
-setQuantities((prev)=>{
-        const newQuentities = {...prev}
-        delete newQuentities[id]
-        return newQuentities;
-})
-  }
 
   return (
-    <div className="px-10">
+    <div className="px-4 md:px-10">
+      {/* Header */}
       <div className="text-center relative">
-        <h1 className="bg-[#D9E0BC] text-[#3F4919] font-bold text-4xl px-12 py-2 rounded-full inline-block my-10">
+        <h1 className="bg-[#D9E0BC] text-[#3F4919] font-bold text-3xl sm:text-4xl px-8 sm:px-12 py-2 rounded-full inline-block my-10">
           Your Cart
         </h1>
         <Progress />
-        <div className="absolute right-10 ">
+        <div className="absolute right-4 sm:right-10 ">
           <SizeVariantsView />
         </div>
       </div>
 
-      <section className="flex flex-col lg:flex-row gap-10 py-20">
+      {/* Main Section */}
+      <section className="flex flex-col lg:flex-row gap-10 py-10 lg:py-20">
         {/* Left Side - Table */}
-        <div className="w-full lg:w-1/2  p-5 rounded-lg">
-          <table className="w-full text-left border-collapse ">
+        <div className="w-full lg:w-1/2 p-2 sm:p-5 rounded-lg overflow-x-auto">
+          <table className="w-full text-left border-collapse min-w-[500px] sm:min-w-full">
             <thead>
               <tr className="text-[#3F4919] ">
-                <th className="py-2 font-semibold">Product</th>
-                <th className="py-2 font-semibold text-2xl">Quantity</th>
-                <th className="py-2 font-semibold text-2xl">Price</th>
-                <th className="py-2 font-semibold text-2xl">Subtotal</th>
+                <th className="py-2 font-semibold text-sm sm:text-base">Product</th>
+                <th className="py-2 font-semibold text-sm sm:text-base">Quantity</th>
+                <th className="py-2 font-semibold text-sm sm:text-base">Price</th>
+                <th className="py-2 font-semibold text-sm sm:text-base">Subtotal</th>
               </tr>
             </thead>
             <tbody>
-              {cards.slice(0,4).map((card) => (
+              {cards.slice(0, 4).map((card) => (
                 <tr key={card.id} className="border-t">
-                  <td className="py-2 flex items-center gap-3">
+                  <td className="py-2 flex items-center gap-2 sm:gap-3">
                     <img
                       src={card.image}
                       alt={card.title}
-                      className="w-16 h-16 object-cover rounded"
+                      className="w-12 h-12 sm:w-16 sm:h-16 object-cover rounded"
                     />
                     <div>
-                      <p className="font-medium text-[#141718] text-lg">{card.title}</p>
-                      <div className="flex items-center gap-2">
-                        <p className="text-[#6C7275]">color: <span>Rich tan</span></p>
-                      <div className={`w-4 h-4 rounded-full ${card.color}`}></div>
+                      <p className="font-medium text-[#141718] text-sm sm:text-lg">{card.title}</p>
+                      <div className="flex items-center gap-2 text-sm sm:text-base">
+                        <span className="text-[#6C7275]">Color:</span>
+                        <div className={`w-4 h-4 rounded-full ${card.color}`}></div>
                       </div>
-                      <button className="text-[#6C7275] mt-1 text-sm flex font-bold items-center gap-1"onClick={()=>handledlt(card.id)}>
-                       <RxCross1 /> Remove  
+                      <button
+                        className="text-[#6C7275] mt-1 text-xs sm:text-sm flex font-bold items-center gap-1"
+                        onClick={() => handledlt(card.id)}
+                      >
+                        <RxCross1 /> Remove
                       </button>
                     </div>
                   </td>
                   <td className="py-2">
-                    <div className="flex  items-center border w-max rounded overflow-hidden">
+                    <div className="flex items-center border w-max rounded overflow-hidden text-sm sm:text-base">
                       <button
                         onClick={() => handleQuantityChange(card.id, -1)}
-                        className="px-2 text-xl"
+                        className="px-2 text-base sm:text-xl"
                       >
                         -
                       </button>
-                      <span className="px-3">{quantities[card.id]}</span>
+                      <span className="px-2 sm:px-3">{quantities[card.id]}</span>
                       <button
                         onClick={() => handleQuantityChange(card.id, +1)}
-                        className="px-2 text-xl"
+                        className="px-2 text-base sm:text-xl"
                       >
                         +
                       </button>
                     </div>
                   </td>
-                  <td className="py-2 text-[#121212]">${card.price} <span className="text-[#90947F]">/each</span></td>
-                  <td className="py-2 text-[#121212] font-bold">${card.price * (quantities[card.id] || 1)}</td>
+                  <td className="py-2 text-[#121212] text-sm sm:text-base">
+                    ${card.price} <span className="text-[#90947F] text-xs sm:text-sm">/each</span>
+                  </td>
+                  <td className="py-2 text-[#121212] font-bold text-sm sm:text-base">
+                    ${card.price * (quantities[card.id] || 1)}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -121,40 +134,52 @@ setQuantities((prev)=>{
         </div>
 
         {/* Right Side - Summary */}
-        <div className="w-full lg:w-1/2 bg-[#94B3161A] p-5 rounded-lg space-y-5">
-          {/* Section 1 */}
-          <div className="flex justify-between border-b pb-2">
-            <span>Subtotal</span>
-            <span>${total}</span>
+        <div className="w-full lg:w-1/2 bg-[#94B3161A] p-3 sm:p-5 rounded-lg space-y-5">
+          {/* Order Summary */}
+          <div className="flex justify-between border-b pb-2 md:text-2xl sm:text-base">
+            <span>Order Summary</span>
           </div>
 
-          {/* Section 2 - textarea */}
+          {/* Additional Notes */}
           <div>
-            <label className="block mb-1">Notes</label>
-            <textarea className="w-full border rounded p-2" rows={4}></textarea>
+            <label
+              className="mb-1 flex items-center justify-between text-lg sm:text-2xl text-[#3F4919] cursor-pointer"
+              onClick={() => setNote(!note)}
+            >
+              Add Additional Order Note{" "}
+              <span>{note ? <FaAngleUp /> : <FaAngleDown />}</span>
+            </label>
+            {note && <textarea className="w-full border rounded p-2 mt-2" rows={4}></textarea>}
           </div>
 
-          {/* Section 3 - Total */}
-          <div className="flex justify-between font-bold text-lg">
-            <span>Total</span>
+          <p className="text-[#3F4919] py-1 text-sm sm:text-xl">
+            Taxes and Shipping calculated at checkout.
+          </p>
+
+          {/* Subtotal */}
+          <div className="flex justify-between font-bold text-base sm:text-lg">
+            <span className="text-[#3F4919] text-lg sm:text-3xl">Subtotal</span>
             <span>${total}</span>
           </div>
 
-          {/* Section 4 - Input + Apply Button */}
-          <div className="flex gap-2 items-center">
+          {/* Coupon Input */}
+          <div className="relative flex items-center">
             <input
               type="text"
-              placeholder="Discount code"
-              className="border rounded p-2 flex-1"
+              placeholder="Enter coupon code"
+              className="border-2 border-lightgreen rounded p-2 pl-10 w-full text-sm sm:text-base"
             />
-            <button className="bg-green-500 text-white px-4 py-2 rounded">
+            <img src={vectorpic} alt="icon" className="absolute left-2 w-5 h-5 sm:w-6 sm:h-6" />
+            <button className="bg-green text-white px-4 py-2 rounded -ml-2 text-sm sm:text-base">
               Apply
             </button>
           </div>
 
-          {/* Final Checkout Button */}
-          <button className="bg-green-500 text-white py-3 rounded w-[70%] block mx-auto">
-            Checkout
+          {/* Checkout Button */}
+          <button className="bg-green text-white py-3 rounded-full w-[70%] sm:w-[50%] block mx-auto text-sm sm:text-base">
+            <Link to="/checkoutpage" state={{ cards }}>
+  Checkout
+</Link>
           </button>
         </div>
       </section>

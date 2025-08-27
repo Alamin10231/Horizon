@@ -4,6 +4,8 @@ import { PhotoGallery } from "@/components/Gallery/PhotoGallery";
 // import { PhotoGallery } from "@/components/Gallery/PhotoGallery";
 import { VideoGallery } from "@/components/Gallery/VideoGallery";
 import { AddtoCart } from "@/components/Products/AddtoCart";
+import { CheckoutPage } from "@/components/Products/CheckoutPage";
+import OrderConfirmation from "@/components/Products/OrderConfirmation";
 import { PcardsAll } from "@/components/Products/PcardsAll";
 import { ShippingPolicy } from "@/components/Products/ShippingPolicy";
 import { ShopNow } from "@/components/Products/ShopNow";
@@ -68,10 +70,21 @@ export const router = createBrowserRouter([
       },
       {
         path: "addtocart",
-        element: <AddtoCart></AddtoCart>
+        element: <AddtoCart></AddtoCart>,
       },
+      {
+        path: "checkoutpage",
+        element: <CheckoutPage></CheckoutPage>
+      },
+      {
+        path: "orderconfirm",
+        element: <OrderConfirmation></OrderConfirmation>
+      },
+    
     ],
+    
   },
+    
   {
     path: "/register",
     element: <Register></Register>,
