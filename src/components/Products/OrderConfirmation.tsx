@@ -21,7 +21,7 @@ export default function OrderConfirmation() {
           <div className="flex items-center w-full md:w-1/2">
             <div className="flex-1 h-2 bg-green-500 rounded-l-full"></div>
             <div className="flex-1 h-2 bg-green-500"></div>
-            <div className="flex-1 h-2 bg-gray-300 rounded-r-full"></div>
+            
           </div>
           <span className="text-sm text-gray-600">Step 3 of 4</span>
         </div>
@@ -43,7 +43,34 @@ export default function OrderConfirmation() {
       {/* Order Details Section */}
       <div className="bg-[#94B3161A] py-8">
         <div className="max-w-6xl mx-auto px-4">
-          <h3 className="font-semibold mb-4">Items Ordered</h3>
+          <div className="w-full md:w-1/2">
+            <h1 className="text-[#3F4919] text-2xl md:text-3xl font-semibold">
+              Order Details
+            </h1>
+
+            <div className="flex flex-col md:flex-row text-start items-start md:items-center justify-start md:justify-between gap-6 md:gap-16 py-4">
+              <div>
+                <p className="text-[#50504D] text-base md:text-lg">
+                  Order Date
+                </p>
+                <p className="text-[#3F4919] text-xl md:text-2xl font-medium">
+                  May 20, 2025
+                </p>
+              </div>
+              <div>
+                <p className="text-[#50504D] text-base md:text-lg">
+                  Payment Method
+                </p>
+                <p className="text-[#3F4919] text-xl md:text-2xl font-medium">
+                  Debit Card
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h3 className="font-semibold mb-4 text-[#3F4919] text-3xl ">
+            Items Ordered
+          </h3>
           <div className="space-y-4">
             {cards.map((item) => (
               <div
@@ -51,9 +78,21 @@ export default function OrderConfirmation() {
                 className="flex flex-col md:flex-row items-center justify-between border-b pb-4"
               >
                 <div className="flex items-center gap-4">
+                  <img
+                    className="w-20 h-20 rounded-2xl"
+                    src={item.image}
+                    alt=""
+                  />
                   <div>
                     <h4 className="font-medium">{item.title}</h4>
                     <p className="text-sm text-gray-500">{item.subtitle}</p>
+                    <p className="text-sm text-gray-500 max-w-md">
+                      {item.details}
+                    </p>
+                    <p className="text-xs sm:text-sm text-gray-500">
+                      Color: Rich Tan
+                    </p>
+                    {/* <span className="bg-[#898989] rounded-2xl w-5 h-5 ml-2"></span> */}
                   </div>
                 </div>
                 <div className="text-right mt-4 md:mt-0">
@@ -65,11 +104,39 @@ export default function OrderConfirmation() {
           </div>
 
           {/* Totals */}
-          <div className="mt-6 text-right space-y-1">
-            <p>Subtotal: $000.00</p>
-            <p>Shipping Cost: $00.00</p>
-            <p>Tax: $00.00</p>
-            <p className="font-bold text-lg">Total: $000.00</p>
+          <div className="mt-6 space-y-2 text-right text-[#3F4919]">
+            <div className="flex items-center justify-between">
+              <p>Subtotal:</p>
+              <p>$000.00</p>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <p>Shipping Cost:</p>
+              <p>$00.00</p>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <p>Tax:</p>
+              <p>$00.00</p>
+            </div>
+
+            <div className="flex items-center justify-between font-bold text-lg">
+              <p>Total:</p>
+              <p>$000.00</p>
+            </div>
+          </div>
+
+          <div className="text-[#50504D] text-2xl font-medium ">
+            <h1>Shipping Information</h1>
+            <ul className="space-y-1">
+              <li>David</li>
+              <li>01939756477</li>
+              <li>david@gmail.com</li>
+              <li>123 Main Street</li>
+              <li>Apt 4B</li>
+              <li>New York, NY 10001</li>
+              <li>United States</li>
+            </ul>
           </div>
         </div>
       </div>

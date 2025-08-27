@@ -1,4 +1,5 @@
 
+import { Link } from "react-router";
 import cardpic1 from "../../assets/images/image (7).png";
 import cardpic2 from "../../assets/images/image (8).png";
 import cardpic3 from "../../assets/images/image (9).png";
@@ -102,10 +103,12 @@ export const Card = () => {
                   <div className="mt-4">
                     <div className="flex gap-6 py-4 items-center justify-center">
                       <button className=" text-[#3F4919]  py-2 px-5  hover:bg-green hover:text-white transition-colors border rounded-full border-green">
-                        Shop Now
+                        
+                        <Link to="/checkoutpage">Shop Now</Link>
                       </button>
                       <button className=" text-[#3F4919] border-green py-2 px-5  hover:bg-green hover:text-white  transition-colors border rounded-full">
-                        Explore more
+                        
+                           <Link to="/">Explore more</Link>
                       </button>
                     </div>
                   </div>
@@ -120,7 +123,9 @@ export const Card = () => {
         <CarouselNext className="bg-green hover:bg-white w-12 h-12" />
       </Carousel>
 
-      <button className="primarybtn">View All Products</button>
+      
+     <Link to="/pcardsall"> <button className="primarybtn">View All Products</button></Link>
+      
     </div>
   );
 };

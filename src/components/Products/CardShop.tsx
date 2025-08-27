@@ -36,9 +36,9 @@ export const CardShop = () => {
   }, [thumbsSwiper]);
 
   return (
-    <div className="flex items-start justify-between py-20 gap-10 relative">
+   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 px-4 lg:px-24">
       {/* Left side - Slider */}
-      <section className="w-1/2 pl-6">
+      <section className=" w-full pl-6 col-span-1">
         {/* Main big slider */}
         <Swiper
           style={{
@@ -88,7 +88,7 @@ export const CardShop = () => {
       </section>
 
       {/* Right side - FenceSimulator */}
-      <section className="w-1/2 pr-24 ">
+      <section className="col-span-1 w-full pr-24 ">
         <div className="p-6 bg-white space-y-6">
           {/* Title */}
           <h1 className="text-2xl font-semibold text-[#3F4919]">
@@ -98,7 +98,7 @@ export const CardShop = () => {
 
           {/* Select Button 1 */}
           <p className="text-2xl text-[#3F4919]">Choose Color</p>
-          <div className="flex items-center justify-between p-3 bg-gray-100 rounded-xl cursor-pointer">
+          <div className="flex items-center justify-between p-3 bg-gray-100 rounded-xl cursor-pointer ">
             <Select>
               <SelectTrigger className="w-full border-none shadow-none">
                 <SelectValue placeholder="Theme" />
@@ -147,7 +147,7 @@ export const CardShop = () => {
               <SelectTrigger className="w-full border-none shadow-none">
                 <SelectValue placeholder="Select Height" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent >
                 <SelectItem value="10ft" className="flex items-center space-x-2">
                   <span className="text-[#3F4919] text-lg">10 ft</span>
                 </SelectItem>
@@ -192,7 +192,7 @@ export const CardShop = () => {
           {/* Buttons */}
           <div className="flex space-x-8">
             <button className="flex-1 py-2 bg-green text-white rounded-full shadow-md hover:bg-transparent hover:text-black hover:border hover:border-green hover:shadow-none">
-              Shop Now
+             <Link to="/checkoutpage"> Shop Now</Link>
             </button>
             <button className="flex-1 py-2 bg-green text-white rounded-full shadow-md hover:bg-transparent hover:text-black hover:border hover:border-green hover:shadow-none">
             <Link to="/addtocart">  Add to Cart</Link>

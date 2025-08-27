@@ -9,6 +9,9 @@ import OrderConfirmation from "@/components/Products/OrderConfirmation";
 import { PcardsAll } from "@/components/Products/PcardsAll";
 import { ShippingPolicy } from "@/components/Products/ShippingPolicy";
 import { ShopNow } from "@/components/Products/ShopNow";
+import { ConfirmEmail } from "@/components/Profile/ConfirmEmail";
+import { UpdateEmail } from "@/components/Profile/UpdateEmail";
+import { UserProfile } from "@/components/Profile/UserProfile";
 import { About } from "@/Pages/About";
 import { Contact } from "@/Pages/Contact";
 import { Gallery } from "@/Pages/Gallery";
@@ -16,6 +19,7 @@ import { Home } from "@/Pages/Home";
 import { Login } from "@/Pages/Login";
 import { MainLayout } from "@/Pages/MainLayout";
 import { Products } from "@/Pages/Products";
+import { ProfileLayout } from "@/Pages/ProfileLayout";
 import { Register } from "@/Pages/Register";
 import { createBrowserRouter } from "react-router";
 
@@ -73,18 +77,34 @@ export const router = createBrowserRouter([
         element: <AddtoCart></AddtoCart>,
       },
       {
-        path: "checkoutpage",
-        element: <CheckoutPage></CheckoutPage>
+        path: "/checkoutpage",
+        element: <CheckoutPage></CheckoutPage>,
       },
       {
         path: "orderconfirm",
-        element: <OrderConfirmation></OrderConfirmation>
+        element: <OrderConfirmation></OrderConfirmation>,
       },
-    
     ],
-    
   },
-    
+  {
+    path: "",
+    element: <ProfileLayout></ProfileLayout>,
+    children: [
+      {
+        path: "/userprofile",
+        element: <UserProfile></UserProfile>,
+      },
+      {
+        path: "/updatemail",
+        element: <UpdateEmail></UpdateEmail>,
+      },
+      {
+        path: "/confirmemail",
+        element: <ConfirmEmail />,
+      },
+    ],
+  },
+
   {
     path: "/register",
     element: <Register></Register>,

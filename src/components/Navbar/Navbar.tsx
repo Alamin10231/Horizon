@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useLocation } from "react-router"; // ✅ import
+import { Link, useLocation } from "react-router"; // ✅ import
 import logo from "../../assets/images/logo.png";
 import { BiSearch } from "react-icons/bi";
 import { FaCartShopping, FaFacebook, FaTwitter } from "react-icons/fa6";
@@ -43,13 +43,6 @@ const Navbar = () => {
   const navLinks: NavLinkType[] = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
-    // {
-    //   label: "Products",
-    //   dropdown: [
-    //     { href: "/products/fencinglist", label: "Fencing List" },
-    //     { href: "/products/freesample", label: "Free Samples" },
-    //   ],
-    // },
     { href: "/gallery", label: "Gallery" },
     { href: "/products", label: "Products" },
     { href: "/contact", label: "Contact" },
@@ -139,7 +132,7 @@ const Navbar = () => {
                 <FaCartShopping className="h-5 w-5 text-green hover:text-white" />
               </button>
               <button className="hidden md:block p-3 rounded-full bg-lightgreen hover:bg-[#9DBF3B] hover:shadow-lg transition">
-                <IoMdContact className="h-5 w-5 text-green hover:text-white" />
+               <Link to="/userprofile"> <IoMdContact className="h-5 w-5 text-green hover:text-white" /></Link>
               </button>
 
               {/* Mobile Menu Button */}
