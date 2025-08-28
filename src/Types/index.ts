@@ -7,16 +7,16 @@ export interface NavLinkType {
 export interface HeaderProps{
        image:string;
        title:React.ReactNode;
-       subtitle:string;
+       subtitle:string | React.ReactNode;
        button?:{label:string; onClick?:()=>void}[]
 }
 export interface Carddata {
   id: number;
   image: React.ReactNode | string;
   title: string | React.ReactNode;
-  subtitle:  React.ReactNode | string ;  
+  subtitle: React.ReactNode | string;  
   color: string;
-  category:string
+  category: string;
 }
 export interface Card {
   id: number;

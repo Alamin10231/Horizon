@@ -1,9 +1,17 @@
 import React from "react";
 import { Usecards } from "../Shared/Usecards";
 import { Link } from "react-router";
-import type { Carddata } from "@/Types";
 
+export interface Carddata {
+  id: number;
+  image: React.ReactNode | string;
+  title: string | React.ReactNode;
+  subtitle: React.ReactNode | string;  
+  color: string;
+  category: string;
+}
 export const RecentView = () => {
+  
   const { cards, loading } = Usecards();
   if (loading) return <div className="p-6 text-center">Loading...</div>;
 
@@ -26,8 +34,8 @@ export const RecentView = () => {
             {/* Image */}
             <div className="flex items-center justify-center h-56 overflow-hidden">
               <img
-                src={card.image}
-                alt={card.title}
+                src={card.image as string}
+                alt={card.title as string}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>

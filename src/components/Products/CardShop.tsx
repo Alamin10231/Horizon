@@ -1,7 +1,6 @@
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
+
+
+import 'swiper/swiper-bundle.css';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import {
@@ -28,6 +27,7 @@ import { Link } from "react-router";
 
 export const CardShop = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+  const [count,setcount] = useState(10)
 
   useEffect(() => {
     if (thumbsSwiper) {
@@ -171,11 +171,11 @@ export const CardShop = () => {
             </span>
           </div>
           <div className="flex items-center space-x-3">
-            <button className="p-2 border border-[#6C7275]">
+            <button className="p-2 border border-[#6C7275]" onClick={()=>setcount(count >0 ? count- 1:0)}>
               <FaMinus className="text-[#6C7275]" />
             </button>
-            <span className="font-semibold text-[#6C7275]">10</span>
-            <button className="p-2 border border-[#6C7275]">
+            <span className="font-semibold text-[#6C7275]">{count}</span>
+            <button className="p-2 border border-[#6C7275]" onClick={()=>setcount(count + 1)}>
               <FaPlus className="text-[#6C7275]" />
             </button>
             <div>

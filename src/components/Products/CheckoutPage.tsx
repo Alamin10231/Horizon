@@ -1,9 +1,14 @@
 "use client";
 
-import type { Card } from "@/Types";
+
 import React from "react";
 import { useLocation, useNavigate } from "react-router";
-
+export interface Card{
+id:string,
+image:string,
+title:string,
+price:number
+}
 export const CheckoutPage: React.FC = () => {
   const location = useLocation();
   const cards = location.state?.cards || [];
@@ -240,7 +245,7 @@ export const CheckoutPage: React.FC = () => {
 
         {/* Right Summary Section */}
         <div className="w-full lg:w-1/2 bg-[#F3F6E7] p-5 rounded-lg space-y-4">
-          {cards.slice(0, 4).map((card) => (
+          {cards.slice(0, 4).map((card:Card) => (
             <div key={card.id} className="flex gap-3 items-center border-b pb-2">
               <img src={card.image} className="w-16 h-16 object-cover rounded" />
               <div className="flex-1">
@@ -260,7 +265,7 @@ export const CheckoutPage: React.FC = () => {
             <div className="flex justify-start gap-2">
               <span>Subtotal:</span>
               <span className="text-[#787878]">
-                ${cards.reduce((acc, c) => acc + c.price, 0)}
+                ${cards.reduce((acc:number, c:Card) => acc + c.price, 0)}
               </span>
             </div>
             <div className="flex justify-start gap-2">
@@ -274,7 +279,7 @@ export const CheckoutPage: React.FC = () => {
             <div className="flex justify-start font-bold text-lg gap-2">
               <span>Total:</span>
               <span className="text-[#787878]">
-                ${cards.reduce((acc, c) => acc + c.price, 0)}
+                ${cards.reduce((acc:number, c:Card) => acc + c.price, 0)}
               </span>
             </div>
           </div>

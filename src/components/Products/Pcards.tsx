@@ -33,8 +33,8 @@ export const Pcards = () => {
             {/* Image */}
             <div className="flex items-center justify-center h-full overflow-hidden">
               <img
-                src={card.image}
-                alt={card.title}
+                src={card.image as string}
+                alt={card.title as string}
                 className="w-full h-full object-cover"
               />
             </div>
