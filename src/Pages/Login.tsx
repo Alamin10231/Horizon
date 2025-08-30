@@ -3,8 +3,29 @@ import loginform from "../../src/assets/images/image (6).png";
 import registerform from "../../src/assets/images/registerpic.png";
 import AllEye from "../../src/assets/images/AiFillEye.svg";
 import { Link } from "react-router";
+import { useContext } from "react";
+import { AuthContext } from "@/AuthProvider/AuthProvider";
+
 
 export const Login = () => {
+const {signin } = useContext(AuthContext) as any
+const handlesubmit = (e:React.FormEvent)=>{
+  e.preventDefault()
+  const form = e.target as HTMLFormElement
+  const password = (form.elements.namedItem("password") as HTMLInputElement).value;
+ const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+  console.log(email,password)
+  signin (email,password)
+  .then((res:any)=>{
+    console.log(res.user)
+  })
+ .catch((error:any) => {
+  console.log(error.message );
+  console.log("error success fully");
+});
+
+} 
+ 
   return (
     <div className="flex min-h-screen">
       {/* Left side image */}
@@ -25,6 +46,7 @@ export const Login = () => {
             src={registerform}
             alt="Register Logo"
           />
+       
 
           {/* Heading */}
           <h2 className="text-xl text-center text-[#60701E] dark:text-white mb-4">
@@ -32,7 +54,7 @@ export const Login = () => {
           </h2>
 
           {/* Form */}
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handlesubmit}>
        
 
             {/* Email */}
@@ -41,6 +63,7 @@ export const Login = () => {
                 Email
               </label>
               <input
+              name="email"
                 type="email"
                 placeholder="example@gmail.com"
                 className="mt-1 w-full p-4 border rounded-sm bg-[#E8EECE] text-gray-900 dark:text-white dark:border-gray-700 focus:ring-2 focus:ring-green-500 outline-none"
@@ -54,6 +77,7 @@ export const Login = () => {
               </label>
               <div className="flex items-center border rounded-sm bg-[#E8EECE] dark:border-gray-700 focus-within:ring-2 focus-within:ring-green-500">
                 <input
+                name="password"
                   type="password"
                   placeholder="@#*%"
                   className="w-full p-4 bg-transparent outline-none text-gray-900 dark:text-white"

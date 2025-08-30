@@ -3,8 +3,33 @@ import registerpic from "../../src/assets/images/image (4).png";
 import registerform from "../../src/assets/images/registerpic.png";
 import AllEye from "../../src/assets/images/AiFillEye.svg";
 import { Link } from "react-router";
+import { useContext } from "react";
+import { AuthContext } from "@/AuthProvider/AuthProvider";
 
 export const Register = () => {
+ const {register} = useContext(AuthContext) !
+
+const handlesubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+
+  
+  const form = e.target as HTMLFormElement;
+
+  const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+  const password = (form.elements.namedItem("password") as HTMLInputElement).value;
+
+  console.log(email, password);
+  register(email,password)
+  .then((res)=>{
+    console.log(res.user)
+
+  })
+  .catch((error)=> {
+    console.log(error.message)
+     console.log("error success fully");
+  });
+};
+
   return (
     <div className="flex min-h-screen">
       {/* Left side image */}
@@ -32,13 +57,14 @@ export const Register = () => {
           </h2>
 
           {/* Form */}
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handlesubmit}>
             {/* Full Name */}
             <div>
               <label className="block text-xl py-2 font-medium text-[#60701E] dark:text-gray-300">
                 Full Name
               </label>
               <input
+              name="name"
                 type="text"
                 placeholder="Your Full Name"
                 className="mt-1 w-full p-4 border rounded-sm bg-[#E8EECE] text-gray-900 dark:text-white dark:border-gray-700 focus:ring-2 focus:ring-green-500 outline-none"
@@ -51,6 +77,7 @@ export const Register = () => {
                 Email
               </label>
               <input
+              name="email"
                 type="email"
                 placeholder="example@gmail.com"
                 className="mt-1 w-full p-4 border rounded-sm bg-[#E8EECE] text-gray-900 dark:text-white dark:border-gray-700 focus:ring-2 focus:ring-green-500 outline-none"
@@ -64,6 +91,7 @@ export const Register = () => {
               </label>
               <div className="flex items-center border rounded-sm bg-[#E8EECE] dark:border-gray-700 focus-within:ring-2 focus-within:ring-green-500">
                 <input
+                name="password"
                   type="password"
                   placeholder="@#*%"
                   className="w-full p-4 bg-transparent outline-none text-gray-900 dark:text-white"
@@ -81,6 +109,7 @@ export const Register = () => {
               </label>
               <div className="flex items-center border rounded-sm bg-[#E8EECE] dark:border-gray-700 focus-within:ring-2 focus-within:ring-green-500">
                 <input
+                 name="confirmpassword"
                   type="password"
                   placeholder="@#*%"
                   className="w-full p-4 bg-transparent outline-none text-gray-900 dark:text-white"
