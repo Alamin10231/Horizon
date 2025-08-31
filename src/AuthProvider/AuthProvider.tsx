@@ -2,7 +2,7 @@
 // import { auth } from '../Firebase.init';
 import type { AuthContextType, AuthProviderprops } from "@/Types";
 import { createContext, useState } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup} from "firebase/auth";
 import {auth} from '../../Firebase.init'
 // import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 // eslint-disable-next-line react-refresh/only-export-components
@@ -22,6 +22,12 @@ export const AuthProvider: React.FC<AuthProviderprops> = ({ children }) => {
     setloading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
+    const signInWithGoogle = () => {
+      setloading(true)
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+    console.log("hlw world")
+  };
 
   
   const authInfo = {
@@ -30,6 +36,7 @@ export const AuthProvider: React.FC<AuthProviderprops> = ({ children }) => {
     setUser,
     signin,
     register,
+    signInWithGoogle
   };
   return (
     <AuthContext.Provider value ={authInfo}>{children}</AuthContext.Provider>

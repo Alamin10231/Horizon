@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { AuthContext } from "@/AuthProvider/AuthProvider";
 
 export const Register = () => {
- const {register} = useContext(AuthContext) !
+ const {register,signInWithGoogle} = useContext(AuthContext) as any
 
 const handlesubmit = (e: React.FormEvent) => {
   e.preventDefault();
@@ -20,16 +20,20 @@ const handlesubmit = (e: React.FormEvent) => {
 
   console.log(email, password);
   register(email,password)
-  .then((res)=>{
+  .then((res:any)=>{
     console.log(res.user)
 
   })
-  .catch((error)=> {
+  .catch((error:any)=> {
     console.log(error.message)
      console.log("error success fully");
   });
 };
-
+const handlegoogle = ()=> {
+  signInWithGoogle()
+  .then((res:any)=>console.log(res.user.email))
+  .catch((error:any)=>console.log(error.message))
+}
   return (
     <div className="flex min-h-screen">
       {/* Left side image */}
@@ -138,7 +142,7 @@ const handlesubmit = (e: React.FormEvent) => {
 
           {/* Continue with Google */}
           <div className="mt-6">
-            <button
+            <button onClick={handlegoogle}
               type="button"
               className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-full py-3 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             >
