@@ -1,6 +1,7 @@
 
 import { Header } from '../Header/Header'
 import Productcvr from "../../assets/images/productcvr.png"
+import { SizeVariantsView } from '../Shared/SizeVariantsView'
 
 
 export const Pheader = () => {
@@ -33,7 +34,13 @@ export const Pheader = () => {
           },
           
         ]}
-      ></Header>
+      >
+
+      </Header>
+ <div className="sizevarient mt-6 fixed top-[590px]">
+        <SizeVariantsView />
+
+      </div>
     </div>
   )
 }

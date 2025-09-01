@@ -29,7 +29,7 @@ export const AboutHeader = () => {
           ]}
     
     />
-    <div className='sizevarient'>
+    <div className='sizevarient fixed top-[620px]'>
         <SizeVariantsView></SizeVariantsView>
     </div>
     </div>

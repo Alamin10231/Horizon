@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Progress from "../ui/Progress";
 import { SizeVariantsView } from "../Shared/SizeVariantsView";
 import { RxCross1 } from "react-icons/rx";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import vectorpic from "../../assets/images/vector/Vector (5).png";
 import { Link } from "react-router";
+import CheckoutStepper from "../ui/Progress";
 
 interface Card {
   id: number;
@@ -62,7 +62,10 @@ export const AddtoCart = () => {
         <h1 className="bg-[#D9E0BC] text-[#3F4919] font-bold text-3xl sm:text-4xl px-8 sm:px-12 py-2 rounded-full inline-block my-10">
           Your Cart
         </h1>
-        <Progress />
+       <div className="relative w-full">
+         <CheckoutStepper currentStep={1} />
+        
+       </div>
         <div className="absolute right-4 sm:right-10 ">
           <SizeVariantsView />
         </div>

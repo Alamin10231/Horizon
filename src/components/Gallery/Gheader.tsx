@@ -24,7 +24,7 @@ export const Gheader = () => {
         button={[{ label: "Shop Now" }, { label: "Order Free Sample" }]}
       />
 
-      <div className="sizevarient mt-6">
+      <div className="sizevarient mt-6 fixed top-[590px]">
         <SizeVariantsView />
       </div>
     </div>

@@ -3,6 +3,8 @@
 
 import React from "react";
 import { useLocation, useNavigate } from "react-router";
+import { SizeVariantsView } from "../Shared/SizeVariantsView";
+import CheckoutStepper from "../ui/Progress";
 export interface Card{
 id:string,
 image:string,
@@ -32,7 +34,18 @@ export const CheckoutPage: React.FC = () => {
         <h1 className="text-2xl md:text-3xl font-bold text-[#3F4919] mb-5">
           Your Cart
         </h1>
+        
       </div>
+ <div className="relative w-full pb-20">
+  <CheckoutStepper currentStep={2} />
+ 
+</div>
+
+
+       <div className="sizevarient mt-6 fixed top-[150px]">
+              <SizeVariantsView />
+      
+            </div>
 
       {/* Main Section */}
       <div className="flex flex-col lg:flex-row gap-10">

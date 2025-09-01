@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import CheckoutStepper from "../ui/Progress";
 
 export default function OrderConfirmation() {
   const [cards, setCards] = useState<any[]>([]);
@@ -15,17 +16,12 @@ export default function OrderConfirmation() {
     <div className="min-h-screen bg-white">
       {/* Header with Progress */}
       <header className="w-full border-b">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-          <h1 className="text-xl font-bold">Checkout</h1>
-          {/* Progress Bar */}
-          <div className="flex items-center w-full md:w-1/2">
-            <div className="flex-1 h-2 bg-green-500 rounded-l-full"></div>
-            <div className="flex-1 h-2 bg-green-500"></div>
-            
-          </div>
-          <span className="text-sm text-gray-600">Step 3 of 4</span>
-        </div>
+    
       </header>
+      <div className="relative w-full py-10">
+       <CheckoutStepper currentStep={3} />
+      
+     </div>
 
       {/* Confirmation Box */}
       <div className="p-6 text-center">

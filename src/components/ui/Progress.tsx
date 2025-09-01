@@ -1,67 +1,47 @@
-"use client";
+interface CheckoutStepperProps {
+  currentStep: number;
+}
 
-import { useState } from "react";
-import {
-  Stepper,
-  StepperIndicator,
-  StepperItem,
-  StepperTrigger,
-} from "@/components/ui/stepper";
+export default function CheckoutStepper({ currentStep }: CheckoutStepperProps) {
+  const steps = [
+    { id: 1, label: "Shopping Cart" },
+    { id: 2, label: "Checkout Details" },
+    { id: 3, label: "Order Complete" },
+  ];
 
-const steps = [
-  { id: 1, label: "Shopping cart" },
-  { id: 2, label: "Checkout details" },
-  { id: 3, label: "Order complete" },
-
-];
-
-export default function Component() {
-  const [currentStep, setCurrentStep] = useState(1);
-
-  // Calculate progression as percentage
-  const progress = ((currentStep - 1) / (steps.length - 1)) * 100;
+  const progress = (currentStep / steps.length) * 100;
 
   return (
-    <div className="mx-auto max-w-xl space-y-8 text-center">
-      {/* Stepper */}
-      <Stepper value={currentStep} onValueChange={setCurrentStep}>
+    <div className="w-full max-w-2xl mx-auto space-y-2">
+      <div className="flex justify-between items-center relative ">
         {steps.map((step) => (
-          <StepperItem key={step.id} step={step.id} className="flex-1">
-            <StepperTrigger
-              className="w-full flex-col items-center gap-2 cursor-pointer"
-              asChild
-              onClick={() => setCurrentStep(step.id)}
+          <div key={step.id} className="flex flex-col items-center">
+            <div
+              className={`flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold
+                ${
+                  currentStep === step.id
+                    ? "bg-[#99BA14] text-white scale-110"
+                    : step.id < currentStep
+                    ? "bg-lime-100 text-lime-700"
+                    : "bg-lime-100 text-lime-600"
+                } transition-transform duration-300`}
             >
-              <div className="flex flex-col items-center">
-                <StepperIndicator
-                  asChild
-                  className={`h-8 w-8 rounded-full flex items-center justify-center ${
-                    step.id <= currentStep
-                      ? "bg-green-500 text-white"
-                      : "bg-gray-200 text-gray-500"
-                  }`}
-                >
-                  <span>{step.id}</span>
-                </StepperIndicator>
-                <span className="text-sm mt-1">{step.label}</span>
-              </div>
-            </StepperTrigger>
-          </StepperItem>
+              {step.id}
+            </div>
+            <span className={`mt-2 text-sm font-medium ${currentStep === step.id ? "text-black" : "text-lime-700"}`}>
+              {step.label}
+            </span>
+          </div>
         ))}
-      </Stepper>
 
-      {/* Progression */}
-      <div className="w-full bg-gray-200 h-2 rounded-full mt-4">
+        {/* Progress Line */}
+        <div className="absolute top-20 left-5 right-5 h-2 bg-[#99BA14] opacity-10 z-0 -translate-y-1/2"></div>
         <div
-          className="bg-green-500 h-2 rounded-full transition-all duration-300"
+          className="absolute top-20 left-5 h-2 rounded-full bg-[#99BA14] z-10 -translate-y-1/2  transition-all duration-300"
           style={{ width: `${progress}%` }}
         ></div>
       </div>
-
-      {/* Step text info */}
-      <div className="text-muted-foreground text-sm font-medium mt-2 tabular-nums">
-        Step {currentStep} of {steps.length} ({steps[currentStep - 1].label})
-      </div>
+      {/* <span className="text-xs font-medium block text-right">{Math.round(progress)}% Complete</span> */}
     </div>
   );
 }

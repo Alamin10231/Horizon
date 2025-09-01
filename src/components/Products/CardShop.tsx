@@ -25,6 +25,7 @@ import { SizeVariantsView } from "../Shared/SizeVariantsView";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
+
 export const CardShop = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const [count,setcount] = useState(10)
@@ -36,6 +37,9 @@ export const CardShop = () => {
   }, [thumbsSwiper]);
 
   return (
+    <>
+    
+     
    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 px-4 lg:px-24">
       {/* Left side - Slider */}
       <section className=" w-full pl-6 col-span-1">
@@ -219,5 +223,6 @@ export const CardShop = () => {
         <SizeVariantsView />
       </div>
     </div>
+    </>
   );
 };

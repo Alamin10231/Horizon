@@ -26,7 +26,7 @@ export const Headerpart = () => {
         />
 
         {/* Bottom Section with Modal Trigger */}
-        <div className=" sizevarient ">
+        <div className=" sizevarient fixed top-[520px]">
           <SizeVariantsView />
         </div>
       </div>

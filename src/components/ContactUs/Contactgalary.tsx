@@ -2,6 +2,7 @@ import { Header } from "../Header/Header";
 import abcd from "../../assets/images/contactcvr.png";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
+import { SizeVariantsView } from "../Shared/SizeVariantsView";
 export const Contactgalary = () => {
         const features = [
           {
@@ -47,6 +48,10 @@ export const Contactgalary = () => {
           },
         ]}
       ></Header>
+       <div className="sizevarient mt-6 fixed top-[590px]">
+                    <SizeVariantsView />
+            
+                  </div>
 
       <div className="md:w-[70%] md:mx-auto  py-10 grid grid-cols-1 sm:grid-cols-3 gap-4 px-10">
           {features.map((feature, idx) => (
